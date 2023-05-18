@@ -1,41 +1,8 @@
 <?php
 
-function exibeMensagem(string $mensagem)
-{
-    echo $mensagem . PHP_EOL;
-}
+//include 'banco.php';
 
-/**
- * Summary of sacar
- * @param mixed $conta
- * @param mixed $valorASacar
- * @return array
- */
-function sacar(array $conta, float $valorASacar): array
-{
-    if ($valorASacar > $conta['saldo']) {
-        exibeMensagem("Você não pode sacar");
-    }else{
-        $conta['saldo'] -= $valorASacar;
-    }
-    return $conta;
-}
-
-/**
- * Summary of depositar
- * @param mixed $conta
- * @param mixed $valorADepositar
- * @return array
- */
-function depositar(array $conta, float $valorADepositar): array
-{
-    if ($valorADepositar > 0){
-        $conta['saldo'] += $valorADepositar;
-    } else{
-        exibeMensagem("Depositos precisam ser positivos");
-    }
-    return $conta;
-}
+require 'banco.php';
 
 $contasCorrentes = [
     '123.456.789-10' => [
@@ -58,5 +25,5 @@ $contasCorrentes['123.456.489.11'] = sacar($contasCorrentes['123.456.489.11'], 5
 $contasCorrentes['123.456.789-10'] = depositar($contasCorrentes['123.456.789-10'], 300);
 
 foreach ($contasCorrentes as $cpf => $conta) {
-    exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
+    exibeMensagem("$cpf {$conta['titular']} {$conta['saldo']}");
 }
