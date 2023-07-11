@@ -2,16 +2,14 @@
 
 class Conta
 {
-    private $cpfTitular;
+    private $titular;
     private $nomeTitular;
     private $saldo = 0;
     private static $numeroDeContas = 0;
 
-    public function __construct(string $cpfTitular, string $nomeTitular)
+    public function __construct(Titular $titular)
     {
-        $this->cpfTitular = $cpfTitular;
-        $this->validaNomeTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
 
         self::$numeroDeContas++;
@@ -56,27 +54,19 @@ class Conta
     {
         return $this-> saldo;
     }
-
-    public function recuperarCpfTitular(): string
+        
+    public static function recuperaNumeroDeContas(): int
     {
-        return $this->cpfTitular;
+        return self::$numeroDeContas;
     }
 
     public function recuperarNomeTitular(): string
     {
-        return $this->nomeTitular;
-    }
-    
-    private function validaNomeTitular(string $nomeTitular)
-    {
-        if (strlen($nomeTitular) < 5){
-            echo "Nome precida ter pelo menos 5 caracteres";
-            exit();
-        }
+        return $this->titular->recuperaNome();
     }
 
-    public static function recuperaNumeroDeContas(): int
+    public function recuperarCpfTitular(): string
     {
-        return self::$numeroDeContas;
+        return $this->titular->recuperaCpf();
     }
 }
