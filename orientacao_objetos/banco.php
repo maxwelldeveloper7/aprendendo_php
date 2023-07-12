@@ -1,7 +1,7 @@
 <?php
 require_once 'src/Conta.php';
 require_once 'src/Titular.php';
-require_once 'src/Cpf.php';
+require_once 'src/CPF.php';
 
 $cpfVinicius = new Cpf('123.456.789-00');
 $vinicius = new Titular($cpfVinicius,'Vinícius');
