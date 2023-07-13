@@ -1,5 +1,6 @@
 <?php
-require_once 'Pessoa.php';
+
+namespace Modelo;
 
 class Funcionario extends Pessoa
 {

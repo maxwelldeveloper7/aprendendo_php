@@ -1,4 +1,7 @@
 <?php
+
+namespace Modelo\Conta;
+
 require_once 'Pessoa.php';
 
 class Titular extends Pessoa
