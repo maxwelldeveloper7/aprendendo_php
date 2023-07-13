@@ -16,7 +16,7 @@ echo $primeiraConta->recuperarCpfTitular() . PHP_EOL;
 echo $primeiraConta->recuperarSaldo() . PHP_EOL;
 
 $cpfMaxwell = new Cpf('123.456.789-01');
-$maxwell = new Titular($cpfMaxwell,'Maxwell', $endereco);
+$maxwell = new Titular($cpfMaxwell,'Max', $endereco);
 $segundaConta = new Conta($maxwell);
 $segundaConta->depositar(500);
 $segundaConta->sacar(100);
